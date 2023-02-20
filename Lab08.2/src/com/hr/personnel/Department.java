@@ -54,7 +54,7 @@ public class Department {
     }
 
     // helper method to add an Employee to the array
-    public void addEmployee(Employee emp) {
+    public void addEmployee(Employee emp) {  //Employee reference to one of Employee, Hourly, Salaried
         employees[currentIndex++] = emp;
     }
 
