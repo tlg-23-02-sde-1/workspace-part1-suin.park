@@ -7,6 +7,7 @@ public class HourlyEmployee extends Employee {
     private double hours;
 
     public HourlyEmployee() {
+        super();  // ctor chaining
     }
 
     public HourlyEmployee(String name, LocalDate hireDate) {
@@ -19,6 +20,15 @@ public class HourlyEmployee extends Employee {
         setHours(hours);       // handle hours myself, by delegating to its setter
     }
 
+    //business methods
+    @Override
+    public void pay() {
+        System.out.println(getName() + " is paid hourly: " + (getRate() * getHours()));
+        // other way double payment = getRate() * getHours();
+        // sout (getName() + " is paid hourly: " + payment);
+    }
+
+    // accessor methods
     public double getRate() {
         return rate;
     }
@@ -35,8 +45,9 @@ public class HourlyEmployee extends Employee {
         this.hours = hours;
     }
 
+    @Override
     public String toString() {
-        return String.format("HourlyEmployee name=%s, hireDate=%s, rate=%s, hours=%s",getName(),
-                getHireDate(),getRate(),getHours());
+        return super.toString() + ", rate= " + getRate() + ", hours= " + getHours();
+        // return String.format("HourlyEmployee name=%s, hireDate=%s, rate=%s, hours=%s",getName(), getHireDate(), getRate(), getHours());
     }
 }

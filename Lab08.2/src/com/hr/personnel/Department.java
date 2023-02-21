@@ -31,9 +31,11 @@ public class Department {
 
     // constructors
     public Department() {
+        super();  // a superclass ctor is always called, whether you say this or not!, called constructor chaining
     }
 
     public Department(String name, String location) {
+        super();     // a superclass ctor is always called, whether you say this or not!, called constructor chaining
         setName(name);
         setLocation(location);
     }
@@ -50,6 +52,12 @@ public class Department {
     public void workEmployees() {
         for (int i = 0; i < currentIndex; i++) {
             employees[i].work();
+        }
+    }
+
+    public void payEmployees() {
+        for (int i = 0; i< currentIndex; i++) {
+            employees[i].pay();
         }
     }
 
@@ -75,7 +83,8 @@ public class Department {
         this.location = location;
     }
 
+    @Override
     public String toString() {
-        return "Department: name=" + getName() + ", location=" + getLocation();
+        return getClass().getSimpleName() + ": name= " + getName() + ", location=" + getLocation();
     }
 }

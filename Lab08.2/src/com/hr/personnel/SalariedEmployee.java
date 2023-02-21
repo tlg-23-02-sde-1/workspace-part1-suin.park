@@ -7,6 +7,7 @@ public class SalariedEmployee extends Employee {
 
 
     public SalariedEmployee() {
+        super();  // ctor chaining
     }
 
     public SalariedEmployee(String name, LocalDate hireDate) {
@@ -18,7 +19,13 @@ public class SalariedEmployee extends Employee {
         this(name, hireDate);  // delegate to neighboring ctor for name, hireDate
         setSalary(salary);     // handle salary myself, by delegating to its setter
     }
+    // business methods
+    @Override
+    public void pay() {
+        System.out.println(getName() + " is paid salary: " + getSalary());
+    }
 
+    // accessor methods
     public double getSalary() {
         return salary;
     }
@@ -27,8 +34,10 @@ public class SalariedEmployee extends Employee {
         this.salary = salary;
     }
 
+    @Override
     public String toString() {
-        return String.format("SalariedEmployee name=%s, hireDate=%s, salary=%s",getName(),
-                getHireDate(),getSalary());
+        return super.toString() + ", salary= " + getSalary();
+        //return String.format("SalariedEmployee name=%s, hireDate=%s, salary=%s",getName(),getHireDate(),getSalary());
+
     }
 }
