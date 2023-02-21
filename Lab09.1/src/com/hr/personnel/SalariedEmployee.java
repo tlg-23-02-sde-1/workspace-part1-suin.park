@@ -1,8 +1,10 @@
 package com.hr.personnel;
 
+import gov.irs.TaxPayer;
+
 import java.time.LocalDate;
 
-public class SalariedEmployee extends Employee {
+public class SalariedEmployee extends Employee  {
     private double salary;
 
 
@@ -25,9 +27,17 @@ public class SalariedEmployee extends Employee {
         System.out.println(getName() + " is paid salary: " + getSalary());
     }
 
+    @Override // interface TaxPayer
+    public void payTaxes() {
+        System.out.println(getName() + " paid taxes of " + (getSalary()*SALARIED_TAX_RATE));
+        // other way double taxes = getSalary() * SALARIED_TAX_RATE
+        // sout (getName() + " paid taxes of " + taxes);
+    }
+
     public void takeVacation() {
         System.out.println(getName() + " is on vacation");
     }
+
 
     // accessor methods
     public double getSalary() {
