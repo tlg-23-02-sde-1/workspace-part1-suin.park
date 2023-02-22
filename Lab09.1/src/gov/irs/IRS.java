@@ -20,10 +20,16 @@ public class IRS {
 
     public void collectTaxes() {
         for (int i = 0; i < currentIndex; i++) {
+            // added in Lab 9.2
+            double deduction = payers[i].getStandardDeduction();
+            System.out.println("Tax payer's deduction is: " + deduction);
+
+            // in-class work with fileReturn()
             payers[i].fileReturn();
             payers[i].payTaxes();
-            System.out.println();  // blank line in the output
-            }
+
+            System.out.println();  // blank line, for better readability of the output
+        }
     }
     
     // helper method to add a TaxPayer to the array
