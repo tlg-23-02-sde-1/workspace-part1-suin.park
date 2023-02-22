@@ -34,6 +34,11 @@ public class SalariedEmployee extends Employee  {
         // sout (getName() + " paid taxes of " + taxes);
     }
 
+    @Override  // interface TaxPayer
+    public void fileReturn() {
+        System.out.println("Return filed electronically");
+    }
+
     public void takeVacation() {
         System.out.println(getName() + " is on vacation");
     }
